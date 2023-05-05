@@ -27,7 +27,7 @@ public class Program {
 
 		System.out.println("RELATÓRIO:");
 		System.out.printf("Consumo = R$ %.2f%n", bil.feeding());
-		if (bil.gender == 'F') {
+		if (bil.feeding() > 30) {
 			System.out.println("Isento de Couvert");
 		} else {
 			System.out.printf("Couvert = R$ %.2f%n", bil.cover());

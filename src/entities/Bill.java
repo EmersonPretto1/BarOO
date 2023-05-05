@@ -16,31 +16,30 @@ public class Bill {
     private final double femaleTicketPrice = 8.0;
     private final double coverPrice = 4.0;
     
-    public double cover() {
-        double total = feeding();
-        if (total > 30.0) {
-            return 0.0;
-        }
-        return coverPrice;
-    }
-    
     public double feeding() {
-        double beerTotal = beerPrice * beer;
-        double softDrinkTotal = softDrinkPrice * softDrink;
-        double barbecueTotal = barbecuePrice * barbecue;
-        double ticketPrice = (gender == 'M') ? maleTicketPrice : femaleTicketPrice;
-        return beerTotal + softDrinkTotal + barbecueTotal + ticketPrice;
-    }
-    
-    public double total() {
-        return feeding() + cover();
+    	return beer * beerPrice + softDrink * softDrinkPrice + barbecue * barbecuePrice;
     }
     
     public double ticket() {
-        if (gender == 'M') {
-            return maleTicketPrice;
-        }
-        return femaleTicketPrice;
+    	if(gender == 'M') {
+    		return maleTicketPrice;
+    	}
+    	else {
+    		return femaleTicketPrice;
+    	}
     }
-
-}
+    
+    public double cover() {
+    	if(feeding() > 30.0) {
+    		return 0.0;
+    		
+    	}
+    	return coverPrice;
+    }
+    
+    public double total() {
+    	return cover() + ticket() + feeding();
+    }
+    
+}   
+    
